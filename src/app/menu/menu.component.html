@@ -1,0 +1,20 @@
+<!-- fxLayout permite utilizar terminos flex en el componente angular-->
+<div class="container"
+     fxLayout="column"
+     fxLayoutGap="10px">
+  <!-- mat-list crea una lista de material angular-->
+  <mat-list fxFlex>
+    <!-- *ngFor es un comando para  componentes angular, trabaja parecido a un "For each", con variables del
+    menu.component.ts suminitradas, aqui con dishes -->
+    <mat-list-item *ngFor="let dish of dishes">
+      <!-- los elementos mat son elementos de material angular, permite crear elementos con estilos a 
+      pre configurados -->
+      <img matListAvatar src={{dish.image}} alt={{dish.name}}>
+      <h1 matLine> {{dish.name}} </h1>
+      <p matLine>
+        <span> {{dish.description}} </span>
+      </p>
+    </mat-list-item>
+  </mat-list>
+
+</div>

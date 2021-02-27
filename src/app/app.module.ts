@@ -2,14 +2,19 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 //Importo los paquetes instalados
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//Importa el componente toolbar de material angular
 import { MatToolbarModule } from '@angular/material/toolbar'; 
 import { FlexLayoutModule } from '@angular/flex-layout';
+//Importa el componente lista de material angular
+import { MatListModule } from '@angular/material/list';
+
 
 
 
 import 'hammerjs';
 
 import { AppComponent } from './app.component';
+import { MenuComponent } from './menu/menu.component';
 
 /*
   Se deben instalar estos paquetes usar angular materials, animaciones.
@@ -24,14 +29,16 @@ import { AppComponent } from './app.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MenuComponent
   ],
   imports: [
     //Los importo para poder usarlos en este componentes y en los demas
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
