@@ -18,6 +18,7 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
+import { DishdetailComponent } from './menu/dishdetail/dishdetail.component';
 
 /*
   Se deben instalar estos paquetes usar angular materials, animaciones.
@@ -33,7 +34,8 @@ import { MenuComponent } from './menu/menu.component';
 @NgModule({
   declarations: [
     AppComponent,
-    MenuComponent
+    MenuComponent,
+    DishdetailComponent
   ],
   imports: [
     //Los importo para poder usarlos en este componentes y en los demas
