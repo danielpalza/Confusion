@@ -1,4 +1,4 @@
-export class Dish {
+default export class Dish {
     id: string;
     name: string;
     image: string;
