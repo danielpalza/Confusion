@@ -10,8 +10,8 @@
   <div fxFlex>
     <mat-grid-list cols="2" rowHeight="200px">
       <!-- *ngFor es un comando para  componentes angular, trabaja parecido a un "For each", con variables del
-      menu.component.ts suminitradas, aqui con dishes -->
-      <mat-grid-tile *ngFor="let dish of dishes">
+      menu.component.ts suminitradas, aqui con dishes. Se usa el evento "Click" para ejecutar el metodo onSelect -->
+      <mat-grid-tile *ngFor="let dish of dishes" (click) = "onSelect(dish)">
         <!-- los elementos mat son elementos de material angular, permite crear elementos con estilos a 
         pre configurados -->
         <img height="200px" src="{{ dish.image }}" alt="{{ dish.name }}" />
@@ -25,7 +25,8 @@
   <!-- mat-list crea una lista de material angular-->
 
   <!-- Se crea un componente Card, con una imagen, texto y dos botones -->
-  <app-dishdetail></app-dishdetail>
+  <!-- Se pasa la propiedad "selectedDish" de menu.component a dishdetail.component como "dish"-->
+  <app-dishdetail [dish] = "selectedDish"></app-dishdetail>
 
   
 </div>

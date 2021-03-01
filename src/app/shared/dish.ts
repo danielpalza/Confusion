@@ -1,4 +1,7 @@
-export default class Dish {
+import { Comment } from './comment';
+
+
+export class Dish {
     id: string;
     name: string;
     image: string;
@@ -7,4 +10,5 @@ export default class Dish {
     label: string;
     price: string;
     description: string;
+    comments: Comment[];
 }
