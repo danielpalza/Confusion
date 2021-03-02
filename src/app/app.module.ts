@@ -20,6 +20,8 @@ import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './menu/dishdetail/dishdetail.component';
 
+import { DishService } from './services/dish.service';
+
 /*
   Se deben instalar estos paquetes usar angular materials, animaciones.
   npm install @angular/material@6.4.7 --save
@@ -48,7 +50,7 @@ import { DishdetailComponent } from './menu/dishdetail/dishdetail.component';
     MatCardModule,
     MatButtonModule,
   ],
-  providers: [],
+  providers: [DishService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
