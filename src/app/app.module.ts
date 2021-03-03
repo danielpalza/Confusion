@@ -23,6 +23,13 @@ import { DishdetailComponent } from './menu/dishdetail/dishdetail.component';
 import { DishService } from './services/dish.service';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
+import { AboutComponent } from './about/about.component';
+import { HomeComponent } from './home/home.component';
+import { ContactComponent } from './contact/contact.component';
+
+//Importo esto para poder usar las rutas que cree
+import { AppRoutingModule } from './app-routing/app-routing.module';
+
 
 /*
   Se deben instalar estos paquetes usar angular materials, animaciones.
@@ -41,7 +48,10 @@ import { FooterComponent } from './footer/footer.component';
     MenuComponent,
     DishdetailComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    AboutComponent,
+    HomeComponent,
+    ContactComponent
   ],
   imports: [
     //Los importo para poder usarlos en este componentes y en los demas
@@ -53,6 +63,7 @@ import { FooterComponent } from './footer/footer.component';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
+    AppRoutingModule
   ],
   providers: [DishService],
   bootstrap: [AppComponent]
