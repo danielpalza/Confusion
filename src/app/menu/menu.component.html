@@ -11,7 +11,9 @@
     <mat-grid-list cols="2" rowHeight="200px">
       <!-- *ngFor es un comando para  componentes angular, trabaja parecido a un "For each", con variables del
       menu.component.ts suminitradas, aqui con dishes. Se usa el evento "Click" para ejecutar el metodo onSelect -->
-      <mat-grid-tile *ngFor="let dish of dishes" (click) = "onSelect(dish)">
+      <!-- a routerLink se le esta agregando una variable, en este caso es el dish.id que se le agrega
+      en la url.-->
+      <mat-grid-tile *ngFor="let dish of dishes" [routerLink]="['/dishdetail', dish.id]">
         <!-- los elementos mat son elementos de material angular, permite crear elementos con estilos a 
         pre configurados -->
         <img height="200px" src="{{ dish.image }}" alt="{{ dish.name }}" />
@@ -26,7 +28,7 @@
 
   <!-- Se crea un componente Card, con una imagen, texto y dos botones -->
   <!-- Se pasa la propiedad "selectedDish" de menu.component a dishdetail.component como "dish"-->
-  <app-dishdetail [dish] = "selectedDish"></app-dishdetail>
+  
 
   
 </div>
