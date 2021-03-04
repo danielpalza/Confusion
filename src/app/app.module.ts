@@ -30,6 +30,7 @@ import { ContactComponent } from './contact/contact.component';
 // Services
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
+import { LeaderService } from "./services/leader.service";
 
 //Importo esto para poder usar las rutas que cree
 import { AppRoutingModule } from './app-routing/app-routing.module';
@@ -47,6 +48,7 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
 */
 
 @NgModule({
+  //Los componentes creados se importan y agregan automaticamente aqui.
   declarations: [
     AppComponent,
     MenuComponent,
@@ -69,7 +71,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     MatButtonModule,
     AppRoutingModule
   ],
-  providers: [DishService, PromotionService],
+  //Los servicios van en "providers".
+  providers: [DishService, PromotionService, LeaderService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
