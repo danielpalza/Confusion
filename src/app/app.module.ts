@@ -10,6 +10,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule } from '@angular/material/dialog';
+
 
 
 
@@ -34,6 +36,7 @@ import { LeaderService } from "./services/leader.service";
 
 //Importo esto para poder usar las rutas que cree
 import { AppRoutingModule } from './app-routing/app-routing.module';
+import { LoginComponent } from './login/login.component';
 
 
 /*
@@ -57,7 +60,8 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     FooterComponent,
     AboutComponent,
     HomeComponent,
-    ContactComponent
+    ContactComponent,
+    LoginComponent
   ],
   imports: [
     //Los importo para poder usarlos en este componentes y en los demas
@@ -69,10 +73,15 @@ import { AppRoutingModule } from './app-routing/app-routing.module';
     MatGridListModule,
     MatCardModule,
     MatButtonModule,
-    AppRoutingModule
+    AppRoutingModule,
+    MatDialogModule
   ],
   //Los servicios van en "providers".
   providers: [DishService, PromotionService, LeaderService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  // entryComponents muestra los componentes que usaran un Dialog
+  entryComponents: [
+    LoginComponent
+],
 })
 export class AppModule { }
