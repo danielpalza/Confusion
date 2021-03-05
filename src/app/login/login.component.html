@@ -3,3 +3,32 @@
 <span class="flex-spacer"></span>
 <button mat-button mat-dialog-close>&times;</button>
 </mat-toolbar>
+<!--esto mostrara la informacion de la variable user en tiempo real-->
+<p>{{ user | json }}</p>
+
+<!--Se pone novalidate para que al hacer submit, angular maneje el formulario, con el metodo usado 
+  en ngSubmit-->
+<form novalidate (ngSubmit)="onSubmit()">
+
+  <!--Se usa un dialog-content para todo lo que contenga el dialogo, como tambien form-field
+  para cada input que trate el form, y el mat-checkbox para manejar checkbox -->
+  <mat-dialog-content>
+    <p>
+      <mat-form-field>
+        <!-- el ngModel permite manipular la variable especificada en el ts de forma directa-->
+        <input matInput placeholder="Username" type="text" [(ngModel)]="user.username" name="username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password">
+      </mat-form-field>
+      <mat-checkbox [(ngModel)]="user.remember" name="remember">Remember Me</mat-checkbox>
+    </p>
+  </mat-dialog-content>
+  <!--dialog-actions permite poner los botones que realizaran las acciones, el cancel
+  cierra el dialog, y el login ejecuta el submit-->
+  <mat-dialog-actions>
+    <span class="flex-spacer"></span>
+    <button mat-button mat-dialog-close>Cancel</button>
+    <button type="submit" mat-button class="background-primary text-floral-white" >Login</button>
+  </mat-dialog-actions>
+</form>

@@ -37,6 +37,12 @@ import { LeaderService } from "./services/leader.service";
 //Importo esto para poder usar las rutas que cree
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { LoginComponent } from './login/login.component';
+//Manejo de formularios
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FormsModule } from '@angular/forms'; 
+
 
 
 /*
@@ -74,7 +80,11 @@ import { LoginComponent } from './login/login.component';
     MatCardModule,
     MatButtonModule,
     AppRoutingModule,
-    MatDialogModule
+    MatDialogModule,
+    MatFormFieldModule, 
+    MatInputModule,
+    MatCheckboxModule,
+    FormsModule,
   ],
   //Los servicios van en "providers".
   providers: [DishService, PromotionService, LeaderService],

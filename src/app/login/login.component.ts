@@ -8,9 +8,20 @@ import {MatDialog, MatDialogRef} from '@angular/material';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  user= {username:"", password:"", remember: false}
+
+  //Se instancia un objeto MatDialogRef y se especifica el componente de dialogo al que hace
+  //referencia, para que se pueda cerrar desde aqui
+  constructor(public dialogRef: MatDialogRef<LoginComponent>) { }
 
   ngOnInit() {
   }
+
+  onSubmit() {
+    console.log('User: ', this.user);
+    //esto cierra el la ventana de dialogo
+    this.dialogRef.close();
+  }
+
 
 }
