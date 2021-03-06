@@ -8,7 +8,9 @@
 
 <!--Se pone novalidate para que al hacer submit, angular maneje el formulario, con el metodo usado 
   en ngSubmit-->
-<form novalidate (ngSubmit)="onSubmit()">
+  <!-- #loginForm permite cargar una plantilla, ngForm, para verificar los datos del form
+  y tirar errores si son necesarios-->
+<form novalidate #loginForm="ngForm" (ngSubmit)="onSubmit()">
 
   <!--Se usa un dialog-content para todo lo que contenga el dialogo, como tambien form-field
   para cada input que trate el form, y el mat-checkbox para manejar checkbox -->
@@ -16,10 +18,19 @@
     <p>
       <mat-form-field>
         <!-- el ngModel permite manipular la variable especificada en el ts de forma directa-->
-        <input matInput placeholder="Username" type="text" [(ngModel)]="user.username" name="username">
+        <!-- cada form field debe tener en su input el nombre de su variable #username y la variable que lo 
+           maneja ,"ngModel" en esta ocasion. El required marcara como obligatorio el campo-->
+        <input matInput placeholder="Username" type="text" [(ngModel)]="user.username" name="username"
+        #username="ngModel" required>
+        <!-- mat-error tirara un error si se lo dicta el loginForm, si el campo esta vacio en esta
+         ocasion -->
+        <mat-error *ngIf="username.errors?.required">Username is required</mat-error>
       </mat-form-field>
       <mat-form-field>
-        <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password">
+        <input matInput placeholder="Password" type="password" [(ngModel)]="user.password" name="password"
+        #password="ngModel" required>
+        <mat-error *ngIf="password.errors?.required">Password is required</mat-error>
+     
       </mat-form-field>
       <mat-checkbox [(ngModel)]="user.remember" name="remember">Remember Me</mat-checkbox>
     </p>
@@ -29,6 +40,9 @@
   <mat-dialog-actions>
     <span class="flex-spacer"></span>
     <button mat-button mat-dialog-close>Cancel</button>
-    <button type="submit" mat-button class="background-primary text-floral-white" >Login</button>
+    <!-- [disabled]="loginForm.form.invalid" deshabilitara el boton login si loginFrom.form dicta que es 
+    es invalido-->
+    <button type="submit" mat-button class="background-primary text-floral-white" 
+    [disabled]="loginForm.form.invalid">Login</button>
   </mat-dialog-actions>
 </form>
