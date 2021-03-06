@@ -11,18 +11,22 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
-
+import { MatSelectModule } from '@angular/material/select';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 
 
 
 import 'hammerjs';
 
+// Importo componentes
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
 import { DishdetailComponent } from './menu/dishdetail/dishdetail.component';
-
-
+import { LoginComponent } from './login/login.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
@@ -36,12 +40,13 @@ import { LeaderService } from "./services/leader.service";
 
 //Importo esto para poder usar las rutas que cree
 import { AppRoutingModule } from './app-routing/app-routing.module';
-import { LoginComponent } from './login/login.component';
-//Manejo de formularios
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatCheckboxModule } from '@angular/material/checkbox';
+
+
+//Manejo de formularios template-driven y reactive
 import { FormsModule } from '@angular/forms'; 
+//Manejo de formularios reactive
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -85,6 +90,9 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatCheckboxModule,
     FormsModule,
+    MatSelectModule,
+    MatSlideToggleModule,
+    ReactiveFormsModule
   ],
   //Los servicios van en "providers".
   providers: [DishService, PromotionService, LeaderService],
