@@ -26,7 +26,8 @@ export class DishdetailComponent implements OnInit {
   ngOnInit() {
     // de route, se toma el parametro que se paso como /:id
     const id = +this.route.snapshot.params['id'];
-    this.dish = this.dishservice.getDish(id.toString());
+    this.dishservice.getDish(id)
+      .then(dish => this.dish = dish)
   }
   //Al usar Location, se puede pedir volver al elemento anterior en el historial al que estamos, volver a la
   //anterior pagina

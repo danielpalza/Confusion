@@ -25,7 +25,8 @@ export class MenuComponent implements OnInit {
    
   //Se llama y se asigna el valor retornado del servicio a la variable "dishes" apenas se crea el componente.
   ngOnInit() {
-    this.dishes = this.dishService.getDishes();
+    this.dishService.getDishes()
+      .then(dishes => this.dishes= dishes)
   }
    //Este metodo podra ser accedido mediante los eventos puestos en el elemento html
   onSelect(dish:Dish){
