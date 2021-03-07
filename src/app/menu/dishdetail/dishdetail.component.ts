@@ -31,7 +31,8 @@ export class DishdetailComponent implements OnInit {
   }
   //Al usar Location, se puede pedir volver al elemento anterior en el historial al que estamos, volver a la
   //anterior pagina
-  goBack(): void {
+  goBack(): void { 
+    //cambio
     this.location.back();
   }
 
