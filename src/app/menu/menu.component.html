@@ -7,7 +7,8 @@
     </div>
   </div>
 
-  <div fxFlex>
+  <!-- muestra este bloque solo dishes existe-->
+  <div fxFlex *ngIf="dishes">
     <mat-grid-list cols="2" rowHeight="200px">
       <!-- *ngFor es un comando para  componentes angular, trabaja parecido a un "For each", con variables del
       menu.component.ts suminitradas, aqui con dishes. Se usa el evento "Click" para ejecutar el metodo onSelect -->
@@ -23,6 +24,10 @@
       </mat-grid-tile>
     </mat-grid-list>
 
+  </div>
+  <!-- muestra este div, con un spinner si es que dishes no existe. Si existe, se esconde.-->
+  <div [hidden]="dishes">
+    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
   </div>
   <!-- mat-list crea una lista de material angular-->
 
