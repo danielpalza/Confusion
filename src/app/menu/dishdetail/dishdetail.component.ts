@@ -27,7 +27,8 @@ export class DishdetailComponent implements OnInit {
     // de route, se toma el parametro que se paso como /:id
     const id = +this.route.snapshot.params['id'];
     this.dishservice.getDish(id)
-      .then(dish => this.dish = dish)
+      .subscribe(dish => this.dish = dish)
+      // para promises .then(dish => this.dish = dish)
   }
   //Al usar Location, se puede pedir volver al elemento anterior en el historial al que estamos, volver a la
   //anterior pagina
