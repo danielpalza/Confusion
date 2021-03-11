@@ -24,7 +24,7 @@ export class PromotionService {
 
   getFeaturedPromotion(): Observable<Promotion> {
     return of(PROMOTIONS.filter((promotion) => promotion.featured)[0]).pipe(delay(2000));
-    });
+    };
 
   }
-}
+
