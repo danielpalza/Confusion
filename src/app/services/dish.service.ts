@@ -31,7 +31,10 @@ export class DishService {
   //A veces el programa funciona sin convertir de numero a string, como la funcion de abajo, que tira
   //error pero funciona, en cambio cuando se arregla para que no tire error, no funciona.
   getDish(id: number): Observable<Dish> {
-    return of(DISHES.filter((dish) => (dish.id === id))[0]).pipe(delay(2000));
+  
+    return of(DISHES.filter((dish) => 
+    
+    (dish.id === id))[0]).pipe(delay(2000));
   }
 
   getFeaturedDish():Observable<Dish> {
