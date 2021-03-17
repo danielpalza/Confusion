@@ -1,4 +1,4 @@
-import { Component, OnInit, Input , ViewChild } from '@angular/core';
+import { Component, OnInit, Input , ViewChild, Inject } from '@angular/core';
 import { Dish } from '../../shared/dish';
 import { DishService } from '../../services/dish.service';
 
@@ -64,7 +64,8 @@ export class DishdetailComponent implements OnInit {
   //Se instancian los objetos de los servicios
   constructor(private dishservice: DishService,
     private route: ActivatedRoute,
-    private location: Location, private fb: FormBuilder) { 
+    private location: Location, private fb: FormBuilder,
+    @Inject ("BaseURL") private BaseURL) { 
       this.createForm();
 
     }
@@ -95,7 +96,7 @@ export class DishdetailComponent implements OnInit {
 
   //Funcion para cambiar actualizar indice de platos
   setPrevNext(dishId: string) {
- 
+    console.log("dishid:", dishId)
     const index = this.dishIds.indexOf(dishId);
     this.prev = this.dishIds[(this.dishIds.length + index - 1) % this.dishIds.length];
     this.next = this.dishIds[(this.dishIds.length + index + 1) % this.dishIds.length];

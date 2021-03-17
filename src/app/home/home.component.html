@@ -12,7 +12,9 @@
       <h3>{{dish.name | uppercase}}</h3>
     </mat-card-title>
   </mat-card-header>
-  <img mat-card-image src={{dish.image}} alt={{dish.name}}>
+
+  <!-- BaseUrl estara compuesta por este, mas dish.image-->
+  <img mat-card-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
   <mat-card-content>
     <p>{{dish.description}}
     </p>

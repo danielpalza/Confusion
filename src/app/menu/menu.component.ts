@@ -1,8 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject } from '@angular/core';
 import { Dish } from '../shared/dish';
 
 //importamos el servicio
 import { DishService } from '../services/dish.service';
+
+
 
 
 @Component({
@@ -18,19 +20,22 @@ export class MenuComponent implements OnInit {
   //Creamos un array de objetos dish
   dishes: Dish[];
 
-  selectedDish: Dish;
+  
 
   //creamos una instancia del servicio DishService para usarlo apenas se cree el componente.
-  constructor(private dishService: DishService) { }
+  // se injecta baseUrl del provider, para que se tenga ese valor cada vez que se inicia, mas lo que
+  //se agregue en el html
+  constructor(private dishService: DishService,
+    @Inject('BaseURL') private BaseURL) { }
    
   //Se llama y se asigna el valor retornado del servicio a la variable "dishes" apenas se crea el componente.
   ngOnInit() {
     this.dishService.getDishes()
       .subscribe(dishes => this.dishes= dishes)
   }
-   //Este metodo podra ser accedido mediante los eventos puestos en el elemento html
-  onSelect(dish:Dish){
+    /*Este metodo podra ser accedido mediante los eventos puestos en el elemento html
+ onSelect(dish:Dish){
     this.selectedDish=dish;
-  }
+  }*/
 
 }

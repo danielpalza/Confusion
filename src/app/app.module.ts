@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+//Necesario para realizar peticiones http
+import { HttpClientModule } from '@angular/common/http';
+
 //Importo los paquetes instalados
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //Importa el componente toolbar de material angular
@@ -50,6 +53,10 @@ import { FormsModule } from '@angular/forms';
 //Manejo de formularios reactive
 import { ReactiveFormsModule } from '@angular/forms';
 
+//Importamos para proveerlo a todos los componentes
+import { baseURL } from './shared/baseurl';
+
+
 
 
 
@@ -97,10 +104,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     MatSlideToggleModule,
     ReactiveFormsModule,
     MatProgressSpinnerModule,
-    MatSliderModule
+    MatSliderModule,
+    HttpClientModule 
   ],
   //Los servicios van en "providers".
-  providers: [DishService, PromotionService, LeaderService],
+  providers: [DishService, PromotionService, LeaderService,  {provide: 'BaseURL', useValue: baseURL}],
   bootstrap: [AppComponent],
   // entryComponents muestra los componentes que usaran un Dialog
   entryComponents: [
