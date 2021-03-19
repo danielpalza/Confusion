@@ -27,8 +27,13 @@
 
   </div>
   <!-- muestra este div, con un spinner si es que dishes no existe. Si existe, se esconde.-->
-  <div [hidden]="dishes">
+  <div [hidden]="dishes || errmess">
     <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
+  </div>
+  <!-- muestra mensajes de error si existe -->
+  <div fxFlex *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
   </div>
   <!-- mat-list crea una lista de material angular-->
 

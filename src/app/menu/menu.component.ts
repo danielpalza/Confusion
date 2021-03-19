@@ -19,6 +19,8 @@ export class MenuComponent implements OnInit {
 
   //Creamos un array de objetos dish
   dishes: Dish[];
+  errMess: string;
+
 
   
 
@@ -29,9 +31,13 @@ export class MenuComponent implements OnInit {
     @Inject('BaseURL') private BaseURL) { }
    
   //Se llama y se asigna el valor retornado del servicio a la variable "dishes" apenas se crea el componente.
+    //se asigna el valor del error, del tipo que sea, a la variable "errmess"
+    //en el primer lugar de suscribe va el metodo a ejecutar si la operacion va bien, en el segundo
+    //si la operacion falla.
   ngOnInit() {
     this.dishService.getDishes()
-      .subscribe(dishes => this.dishes= dishes)
+      .subscribe(dishes => this.dishes= dishes,
+        errmess => this.errMess = <any>errmess);
   }
     /*Este metodo podra ser accedido mediante los eventos puestos en el elemento html
  onSelect(dish:Dish){

@@ -26,6 +26,7 @@ export class DishdetailComponent implements OnInit {
   //@Input()
   @ViewChild('fform') feedbackFormDirective;
 
+  errMess: string;
 
   feedbackForm: FormGroup;
   feedback: Feedback;
@@ -73,13 +74,11 @@ export class DishdetailComponent implements OnInit {
   ngOnInit() {
 
     this.dishservice.getDishIds()
-      .subscribe(dishIds =>{this.dishIds = dishIds});
+      .subscribe(dishIds =>{this.dishIds = dishIds},
+        errmess => this.errMess = <any>errmess);
     this.route.params
       .pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
-      .subscribe(dish => { 
-        
-        
-        this.dish = dish; this.setPrevNext(dish.id); });
+      .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
     // de route, se toma el parametro que se paso como /:id
     /*const id = +this.route.snapshot.params['id'];
     this.dishservice.getDish(id)
@@ -119,7 +118,8 @@ export class DishdetailComponent implements OnInit {
     // Chequea si hay valores cambiados gracias al observer valueChanges,
     //si los hay, ejecuta onValueChanged
     this.feedbackForm.valueChanges
-        .subscribe(data => this.onValueChanged(data));
+        .subscribe(data => this.onValueChanged(data),
+        errmess => this.errMess = <any>errmess);
 
     this.onValueChanged(); // (re)set validation messages now
 
@@ -168,7 +168,8 @@ export class DishdetailComponent implements OnInit {
       }
     }
   }
-  }
+}
+}
   
 
   

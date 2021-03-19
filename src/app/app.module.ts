@@ -43,6 +43,7 @@ import { ContactComponent } from './contact/contact.component';
 import { DishService } from './services/dish.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from "./services/leader.service";
+import {ProcessHTTPMsgService} from "./services/process-httpmsg.service"
 
 //Importo esto para poder usar las rutas que cree
 import { AppRoutingModule } from './app-routing/app-routing.module';
