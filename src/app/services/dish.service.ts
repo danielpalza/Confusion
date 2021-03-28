@@ -8,7 +8,8 @@ import { delay } from 'rxjs/operators';
 // utilizamos para crear la peticion
 //catchError permite capturar errores y que continue el proceso
 import { map, catchError  } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http';
+//Sirven para el trabajo de request, y la creacion de headers
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { baseURL } from '../shared/baseurl';
 
 //servicio para mostrar msg's de errores
@@ -73,5 +74,20 @@ export class DishService {
     
  
     // return of(DISHES.map(dish => dish.id ));
+  }
+
+  // hace un request a la base de datos para persistir un objeto
+  putDish(dish: Dish): Observable<Dish> {
+    //configura el header a usar
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type':  'application/json'
+      })
+    };
+    //enviar un objeto Dish
+    return this.http.put<Dish>(baseURL + 'dishes/' + dish.id, dish, httpOptions)
+      //maneja un posible error 
+      .pipe(catchError(this.processHTTPMsgService.handleError));
+
   }
 }

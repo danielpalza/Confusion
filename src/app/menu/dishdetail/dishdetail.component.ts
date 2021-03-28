@@ -39,6 +39,8 @@ export class DishdetailComponent implements OnInit {
   prev: string;
   next: string;
 
+  dishcopy: Dish;
+
   
   //Un objeto que contiene los errores presentes en el atributo
   formErrors = {
@@ -78,7 +80,8 @@ export class DishdetailComponent implements OnInit {
         errmess => this.errMess = <any>errmess);
     this.route.params
       .pipe(switchMap((params: Params) => this.dishservice.getDish(params['id'])))
-      .subscribe(dish => { this.dish = dish; this.setPrevNext(dish.id); });
+      .subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); },
+        errmess => this.errMess = <any>errmess );
     // de route, se toma el parametro que se paso como /:id
     /*const id = +this.route.snapshot.params['id'];
     this.dishservice.getDish(id)
@@ -132,6 +135,13 @@ export class DishdetailComponent implements OnInit {
     console.log(this.feedback);
     //toISOString formatea la fecha a un string mas amigable.
     this.dish.comments.push({...this.feedbackForm.value, date: new Date().toISOString()})
+    //hace el envio del comment nuevo
+    this.dishcopy.comments.push({...this.feedbackForm.value, date: new Date().toISOString()});
+    this.dishservice.putDish(this.dishcopy)
+      .subscribe(dish => {
+        this.dish = dish; this.dishcopy = dish;
+      },
+      errmess => { this.dish = null; this.dishcopy = null; this.errMess = <any>errmess; });
     //Resetea el formulario
     this.feedbackForm.reset({
       author: '',
