@@ -14,7 +14,8 @@
       menu.component.ts suminitradas, aqui con dishes. Se usa el evento "Click" para ejecutar el metodo onSelect -->
       <!-- a routerLink se le esta agregando una variable, en este caso es el dish.id que se le agrega
       en la url.-->
-      <mat-grid-tile *ngFor="let dish of dishes" [routerLink]="['/dishdetail', dish.id]">
+      <!-- appHighLight es una directiva creada, se agrega y ejecuta los procesos precisados-->
+      <mat-grid-tile *ngFor="let dish of dishes" [routerLink]="['/dishdetail', dish.id]" appHighlight>
         <!-- los elementos mat son elementos de material angular, permite crear elementos con estilos a 
         pre configurados -->
         <!-- BaseUrl estara compuesta por este, mas dish.image-->

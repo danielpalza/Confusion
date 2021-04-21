@@ -56,6 +56,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 //Importamos para proveerlo a todos los componentes
 import { baseURL } from './shared/baseurl';
+import { HighlightDirective } from './directives/highlight.directive';
 
 
 
@@ -83,7 +84,8 @@ import { baseURL } from './shared/baseurl';
     AboutComponent,
     HomeComponent,
     ContactComponent,
-    LoginComponent
+    LoginComponent,
+    HighlightDirective
   ],
   imports: [
     //Los importo para poder usarlos en este componentes y en los demas
