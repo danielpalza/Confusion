@@ -4,13 +4,24 @@ import { Dish } from '../shared/dish';
 //importamos el servicio
 import { DishService } from '../services/dish.service';
 
+import { flyInOut, expand } from '../animations/app.animations';
+
 
 
 
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styleUrls: ['./menu.component.scss']
+  styleUrls: ['./menu.component.scss'],
+  //establece el valor de flyInOut como true, cuando el componente es enrutado
+  host: {
+    '[@flyInOut]': 'true',
+    'style': 'display: block;'
+    },
+  animations:[
+    flyInOut(),
+    expand()
+  ]
 })
 
 

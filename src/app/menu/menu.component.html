@@ -8,7 +8,7 @@
   </div>
 
   <!-- muestra este bloque solo dishes existe-->
-  <div fxFlex *ngIf="dishes">
+  <div fxFlex *ngIf="dishes" [@expand]>
     <mat-grid-list cols="2" rowHeight="200px">
       <!-- *ngFor es un comando para  componentes angular, trabaja parecido a un "For each", con variables del
       menu.component.ts suminitradas, aqui con dishes. Se usa el evento "Click" para ejecutar el metodo onSelect -->
