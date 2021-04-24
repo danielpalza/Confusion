@@ -44,7 +44,8 @@ export class HomeComponent implements OnInit {
       .subscribe(promotion => {this.promotion = promotion; console.log({promotion})},
         errmess => this.errMess = <any>errmess)
     this.leaderService.getFeaturedLeader()
-      .subscribe(featuredLeader => this.leaderFeature = featuredLeader)
+      .subscribe(featuredLeader => {this.leaderFeature = featuredLeader; console.log({featuredLeader})},
+        errmess => this.errMess = <any>errmess)
   }
 
 }
