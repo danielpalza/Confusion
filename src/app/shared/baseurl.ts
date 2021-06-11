@@ -1,2 +1,2 @@
 //Creamos la url base a usar para hacer peticiones en el server
-export const baseURL = 'http://localhost:4200/';
+export const baseURL = 'https://restaurant-confusion.vercel.app';
