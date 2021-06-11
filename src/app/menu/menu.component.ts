@@ -47,7 +47,7 @@ export class MenuComponent implements OnInit {
     //si la operacion falla.
   ngOnInit() {
     this.dishService.getDishes()
-      .subscribe(dishes => this.dishes= dishes,
+      .then(dishes => this.dishes= dishes,
         errmess => this.errMess = <any>errmess);
   }
     /*Este metodo podra ser accedido mediante los eventos puestos en el elemento html

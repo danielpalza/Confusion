@@ -25,14 +25,21 @@ export class AboutComponent implements OnInit {
 
   constructor(private leaderService:LeaderService) { }
 
-  ngOnInit() {
+  /*ngOnInit() {
     this.leaderService.getLeaders()
       .subscribe(leaders => {this.leaders =leaders},
         errmess => this.errMess = <any>errmess)
     this.leaderService.getFeaturedLeader()
       .subscribe(featuredLeader=> {this.featureLeader = featuredLeader},
         errmess => this.errMess = <any>errmess)
-  }
-
+  }*/
+  ngOnInit() {
+    this.leaderService.getLeaders()
+      .then(leaders => {this.leaders =leaders},
+        errmess => this.errMess = <any>errmess)
+    this.leaderService.getFeaturedLeader()
+      .then(featuredLeader=> {this.featureLeader = featuredLeader},
+        errmess => this.errMess = <any>errmess)
+      }
   
 }

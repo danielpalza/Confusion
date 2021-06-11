@@ -91,12 +91,13 @@ export class DishdetailComponent implements OnInit {
   ngOnInit() {
 
     this.dishservice.getDishIds()
-      .subscribe(dishIds =>{this.dishIds = dishIds},
+      .then(dishIds =>{this.dishIds = dishIds},
         errmess => this.errMess = <any>errmess);
     this.route.params
-      .pipe(switchMap((params: Params) => {this.visibility = 'hidden';return this.dishservice.getDish(params['id'])}))
-      .subscribe(dish => {  this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id);this.visibility = 'shown'},
-        errmess => this.errMess = <any>errmess );
+      .pipe(switchMap((params: Params) => {
+        this.visibility = 'hidden';
+        return this.dishservice.getDish(params['id'])}))
+      .subscribe(dish => {  this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id);this.visibility = 'shown'});
     // de route, se toma el parametro que se paso como /:id
     /*const id = +this.route.snapshot.params['id'];
     this.dishservice.getDish(id)
