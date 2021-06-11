@@ -61,7 +61,7 @@ export class DishService {
     (dish.id === id))[0]).pipe(delay(2000));*/
   }
 
-  getFeaturedDish(): Promise<Dish> {   
+  getFeaturedDishe(): Promise<Dish> {   
       return new Promise(resolve=>{
         setTimeout(()=>{
           resolve(DISHES.filter(dish=> dish.featured==true)[0])
@@ -105,5 +105,13 @@ export class DishService {
         //maneja un posible error
         .pipe(catchError(this.processHTTPMsgService.handleError))
     );
+  }
+
+  getDishFeatured(): Promise<Dish>{
+    return new Promise(resolve=>{
+      setTimeout(()=>{
+        resolve(DISHES.filter(dish=> dish.featured==true)[0])
+      },2000)
+    })
   }
 }

@@ -34,7 +34,11 @@ export class HomeComponent implements OnInit {
   constructor(private dishservice: DishService,
     private promotionservice: PromotionService, 
     private leaderService: LeaderService,
-    @Inject ("BaseURL") private BaseURL) { }
+    ) { }
+    /*constructor(private dishservice: DishService,
+      private promotionservice: PromotionService, 
+      private leaderService: LeaderService,
+      @Inject ("BaseURL") private BaseURL) { }*/
 
     //WIth observable and HTTP request
   /*ngOnInit() {
@@ -50,7 +54,7 @@ export class HomeComponent implements OnInit {
   }*/
 
   ngOnInit() {
-    this.dishservice.getFeaturedDish()
+    this.dishservice.getDishFeatured()
       .then(featuredDish => this.dish = featuredDish)
     this.promotionservice.getFeaturedPromotion()
       .then(promotion => {this.promotion = promotion; console.log({promotion})},
